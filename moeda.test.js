@@ -11,6 +11,8 @@ test("testeMultiplicacao", () => {
 test("testeIgualdade", () => {
   assert.ok(new Dolar(5).equals(new Dolar(5)));
   assert.strictEqual(new Dolar(5).equals(new Dolar(6)), false);
+  assert.ok(new Euro(5).equals(new Euro(5)));
+  assert.strictEqual(new Euro(5).equals(new Euro(6)), false);
 });
 
 test("testeMultiplicacaoEuro", () => {

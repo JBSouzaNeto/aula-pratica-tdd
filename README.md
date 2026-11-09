@@ -320,6 +320,10 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   equals(object) {
     if (!(object instanceof Moeda)) return false;
     return this.#valor === object.valor;
@@ -328,13 +332,13 @@ class Moeda {
 
 class Dolar extends Moeda {
   vezes(multiplicador) {
-    return new Dolar(this.#valor * multiplicador);
+    return new Dolar(this.valor * multiplicador);
   }
 }
 
 class Euro extends Moeda {
   vezes(multiplicador) {
-    return new Euro(this.#valor * multiplicador);
+    return new Euro(this.valor * multiplicador);
   }
 }
 
