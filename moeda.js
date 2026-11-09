@@ -1,9 +1,11 @@
 class Dolar {
-  valor = 10;
+  constructor(valor) {
+    this.valor = valor;
+  }
 
-  constructor(valor) {}
-
-  vezes(multiplicador) {}
+  vezes(multiplicador) {
+    this.valor = this.valor * multiplicador;
+  }
 }
 
 module.exports = { Dolar };
