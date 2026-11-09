@@ -15,7 +15,9 @@ class Moeda {
 
   equals(object) {
     if (!(object instanceof Moeda)) return false;
-    return this.#valor === object.valor;
+    return (
+      this.#valor === object.valor && this.constructor === object.constructor
+    );
   }
 }
 
