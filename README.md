@@ -72,7 +72,7 @@ Nesta aula prática, vamos vivenciar esse mesmo dilema:
 
 ---
 
-## 4. Roteiro Passo a Passo (Ciclo TDD)
+## 4. Roteiro Passo a Passo (Ciclo TDD)[^2]
 
 ---
 
@@ -320,6 +320,10 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   equals(object) {
     if (!(object instanceof Moeda)) return false;
     return this.#valor === object.valor;
@@ -328,13 +332,13 @@ class Moeda {
 
 class Dolar extends Moeda {
   vezes(multiplicador) {
-    return new Dolar(this.#valor * multiplicador);
+    return new Dolar(this.valor * multiplicador);
   }
 }
 
 class Euro extends Moeda {
   vezes(multiplicador) {
-    return new Euro(this.#valor * multiplicador);
+    return new Euro(this.valor * multiplicador);
   }
 }
 
@@ -386,6 +390,10 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   equals(object) {
     if (!(object instanceof Moeda)) return false;
     return (
@@ -406,6 +414,8 @@ Criamos métodos estáticos em `Moeda` para desacoplar as chamadas diretas aos c
 **Atualização nos Testes (`moeda.test.js`)**:
 
 ```javascript
+const { Moeda, Dolar, Euro } = require("./moeda.js");
+
 test("testeMultiplicacao", () => {
   const cinco = Moeda.dolar(5);
   assert.ok(cinco.vezes(2).equals(Moeda.dolar(10)));
@@ -441,6 +451,10 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   static dolar(valor) {
     return new Dolar(valor);
   }
@@ -470,8 +484,8 @@ Adicionamos o código textual da moeda (`"USD"` e `"EUR"`).
 
 ```javascript
 test("testeMoedaTipo", () => {
-  assert.strictEqual(Moeda.dolar(1).tipo(), "USD");
-  assert.strictEqual(Moeda.euro(1).tipo(), "EUR");
+  assert.strictEqual(Moeda.dolar(1).tipo, "USD");
+  assert.strictEqual(Moeda.euro(1).tipo, "EUR");
 });
 ```
 
@@ -491,8 +505,16 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   get tipo() {
     return this.#tipo;
+  }
+
+  set tipo(tipo) {
+    this.#tipo = tipo;
   }
 
   static dolar(valor) {
@@ -515,7 +537,7 @@ class Dolar extends Moeda {
   }
 
   vezes(multiplicador) {
-    return Moeda.dolar(this.#valor * multiplicador);
+    return Moeda.dolar(this.valor * multiplicador);
   }
 }
 
@@ -525,7 +547,7 @@ class Euro extends Moeda {
   }
 
   vezes(multiplicador) {
-    return Moeda.euro(this.#valor * multiplicador);
+    return Moeda.euro(this.valor * multiplicador);
   }
 }
 
@@ -556,8 +578,16 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   get tipo() {
     return this.#tipo;
+  }
+
+  set tipo(tipo) {
+    this.#tipo = tipo;
   }
 
   static dolar(valor) {
@@ -603,11 +633,13 @@ test("testeIgualdade", () => {
 });
 
 test("testeMoedaTipo", () => {
-  assert.strictEqual(Moeda.dolar(1).tipo(), "USD");
-  assert.strictEqual(Moeda.euro(1).tipo(), "EUR");
+  assert.strictEqual(Moeda.dolar(1).tipo, "USD");
+  assert.strictEqual(Moeda.euro(1).tipo, "EUR");
 });
 ```
 
 👉 **Ação**: Execute os testes (`node --test`). Parabéns! Você vivenciou os ciclos de TDD, evoluindo a arquitetura do código a partir de testes e obtendo um modelo simples, sem duplicação e seguro.
 
 [^1]: **Nota de Adaptação**: Este roteiro foi adaptado do exercício prático de TDD do livro _Engenharia de Software Moderna_ (Prof. Marco Tulio Valente) e do livro clássico _Test-Driven Development: By Example_ (Kent Beck). As implementações utilizam **JavaScript** com notação **CommonJS** (`require`/`module.exports`), o test runner nativo do Node.js (**`node:test`**) com o estilo `test()`, o módulo **`node:assert`** e nomenclatura em português (`Moeda`, `Dolar`, `Euro`).
+
+[^2]: **Programação Orientada a Objetos em JavaScript**: Este trabalho utiliza o paradigma de Programação Orientada a Objetos (POO) em JavaScript. O conhecimento básico em alguma outra linguagem OO, como Java, é suficiente para entender o código apresentado. Entretanto, a linguagem JavaScript possui algumas particularidades para o uso de OO. Em caso de dúvidas, ver o resumo apresentado em [Resumo de POO com JavaScript](POO-JS.md).
