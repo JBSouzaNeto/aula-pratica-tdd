@@ -19,4 +19,25 @@ class Dolar {
   }
 }
 
-module.exports = { Dolar };
+class Euro {
+  #valor;
+
+  constructor(valor) {
+    this.#valor = valor;
+  }
+
+  get valor() {
+    return this.#valor;
+  }
+
+  vezes(multiplicador) {
+    return new Euro(this.#valor * multiplicador);
+  }
+
+  equals(object) {
+    if (!(object instanceof Euro)) return false;
+    return this.#valor === object.valor;
+  }
+}
+
+module.exports = { Dolar, Euro };

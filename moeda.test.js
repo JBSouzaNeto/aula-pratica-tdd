@@ -1,6 +1,6 @@
 const { test } = require("node:test");
 const assert = require("node:assert");
-const { Dolar } = require("./moeda.js");
+const { Dolar, Euro } = require("./moeda.js");
 
 test("testeMultiplicacao", () => {
   const cinco = new Dolar(5);
@@ -11,4 +11,10 @@ test("testeMultiplicacao", () => {
 test("testeIgualdade", () => {
   assert.ok(new Dolar(5).equals(new Dolar(5)));
   assert.strictEqual(new Dolar(5).equals(new Dolar(6)), false);
+});
+
+test("testeMultiplicacaoEuro", () => {
+  const cinco = new Euro(5);
+  assert.ok(cinco.vezes(2).equals(new Euro(10)));
+  assert.ok(cinco.vezes(3).equals(new Euro(15)));
 });
