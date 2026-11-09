@@ -1,23 +1,23 @@
 const { test } = require("node:test");
 const assert = require("node:assert");
-const { Dolar, Euro } = require("./moeda.js");
+const { Moeda, Dolar, Euro } = require("./moeda.js");
 
 test("testeMultiplicacao", () => {
-  const cinco = new Dolar(5);
-  assert.ok(cinco.vezes(2).equals(new Dolar(10)));
-  assert.ok(cinco.vezes(3).equals(new Dolar(15)));
-});
-
-test("testeIgualdade", () => {
-  assert.ok(new Dolar(5).equals(new Dolar(5)));
-  assert.strictEqual(new Dolar(5).equals(new Dolar(6)), false);
-  assert.ok(new Euro(5).equals(new Euro(5)));
-  assert.strictEqual(new Euro(5).equals(new Euro(6)), false);
-  assert.strictEqual(new Euro(5).equals(new Dolar(5)), false); // Moedas distintas!
+  const cinco = Moeda.dolar(5);
+  assert.ok(cinco.vezes(2).equals(Moeda.dolar(10)));
+  assert.ok(cinco.vezes(3).equals(Moeda.dolar(15)));
 });
 
 test("testeMultiplicacaoEuro", () => {
-  const cinco = new Euro(5);
-  assert.ok(cinco.vezes(2).equals(new Euro(10)));
-  assert.ok(cinco.vezes(3).equals(new Euro(15)));
+  const cinco = Moeda.euro(5);
+  assert.ok(cinco.vezes(2).equals(Moeda.euro(10)));
+  assert.ok(cinco.vezes(3).equals(Moeda.euro(15)));
+});
+
+test("testeIgualdade", () => {
+  assert.ok(Moeda.dolar(5).equals(Moeda.dolar(5)));
+  assert.strictEqual(Moeda.dolar(5).equals(Moeda.dolar(6)), false);
+  assert.ok(Moeda.euro(5).equals(Moeda.euro(5)));
+  assert.strictEqual(Moeda.euro(5).equals(Moeda.euro(6)), false);
+  assert.strictEqual(Moeda.euro(5).equals(Moeda.dolar(5)), false);
 });

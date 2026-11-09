@@ -13,6 +13,14 @@ class Moeda {
     this.#valor = valor;
   }
 
+  static dolar(valor) {
+    return new Dolar(valor);
+  }
+
+  static euro(valor) {
+    return new Euro(valor);
+  }
+
   equals(object) {
     if (!(object instanceof Moeda)) return false;
     return (

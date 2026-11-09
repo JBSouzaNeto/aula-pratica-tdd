@@ -390,6 +390,10 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   equals(object) {
     if (!(object instanceof Moeda)) return false;
     return (
@@ -410,6 +414,8 @@ Criamos métodos estáticos em `Moeda` para desacoplar as chamadas diretas aos c
 **Atualização nos Testes (`moeda.test.js`)**:
 
 ```javascript
+const { Moeda, Dolar, Euro } = require("./moeda.js");
+
 test("testeMultiplicacao", () => {
   const cinco = Moeda.dolar(5);
   assert.ok(cinco.vezes(2).equals(Moeda.dolar(10)));
@@ -443,6 +449,10 @@ class Moeda {
 
   get valor() {
     return this.#valor;
+  }
+
+  set valor(valor) {
+    this.#valor = valor;
   }
 
   static dolar(valor) {
@@ -495,8 +505,16 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   get tipo() {
     return this.#tipo;
+  }
+
+  set tipo(tipo) {
+    this.#tipo = tipo;
   }
 
   static dolar(valor) {
@@ -560,8 +578,16 @@ class Moeda {
     return this.#valor;
   }
 
+  set valor(valor) {
+    this.#valor = valor;
+  }
+
   get tipo() {
     return this.#tipo;
+  }
+
+  set tipo(tipo) {
+    this.#tipo = tipo;
   }
 
   static dolar(valor) {
