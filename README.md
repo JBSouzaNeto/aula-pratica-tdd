@@ -537,7 +537,7 @@ class Dolar extends Moeda {
   }
 
   vezes(multiplicador) {
-    return Moeda.dolar(this.#valor * multiplicador);
+    return Moeda.dolar(this.valor * multiplicador);
   }
 }
 
@@ -547,7 +547,7 @@ class Euro extends Moeda {
   }
 
   vezes(multiplicador) {
-    return Moeda.euro(this.#valor * multiplicador);
+    return Moeda.euro(this.valor * multiplicador);
   }
 }
 

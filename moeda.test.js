@@ -21,3 +21,8 @@ test("testeIgualdade", () => {
   assert.strictEqual(Moeda.euro(5).equals(Moeda.euro(6)), false);
   assert.strictEqual(Moeda.euro(5).equals(Moeda.dolar(5)), false);
 });
+
+test("testeMoedaTipo", () => {
+  assert.strictEqual(Moeda.dolar(1).tipo, "USD");
+  assert.strictEqual(Moeda.euro(1).tipo, "EUR");
+});
