@@ -24,11 +24,15 @@ class Moeda {
   }
 
   static dolar(valor) {
-    return new Dolar(valor, "USD");
+    return new Moeda(valor, "USD");
   }
 
   static euro(valor) {
-    return new Euro(valor, "EUR");
+    return new Moeda(valor, "EUR");
+  }
+
+  vezes(multiplicador) {
+    return new Moeda(this.#valor * multiplicador, this.#tipo);
   }
 
   equals(object) {
@@ -37,24 +41,4 @@ class Moeda {
   }
 }
 
-class Dolar extends Moeda {
-  constructor(valor, tipo) {
-    super(valor, tipo);
-  }
-
-  vezes(multiplicador) {
-    return Moeda.dolar(this.valor * multiplicador);
-  }
-}
-
-class Euro extends Moeda {
-  constructor(valor, tipo) {
-    super(valor, tipo);
-  }
-
-  vezes(multiplicador) {
-    return Moeda.euro(this.valor * multiplicador);
-  }
-}
-
-module.exports = { Moeda, Dolar, Euro };
+module.exports = { Moeda };

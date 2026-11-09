@@ -1,6 +1,6 @@
 const { test } = require("node:test");
 const assert = require("node:assert");
-const { Moeda, Dolar, Euro } = require("./moeda.js");
+const { Moeda } = require("./moeda.js");
 
 test("testeMultiplicacao", () => {
   const cinco = Moeda.dolar(5);

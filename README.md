@@ -484,8 +484,8 @@ Adicionamos o código textual da moeda (`"USD"` e `"EUR"`).
 
 ```javascript
 test("testeMoedaTipo", () => {
-  assert.strictEqual(Moeda.dolar(1).tipo(), "USD");
-  assert.strictEqual(Moeda.euro(1).tipo(), "EUR");
+  assert.strictEqual(Moeda.dolar(1).tipo, "USD");
+  assert.strictEqual(Moeda.euro(1).tipo, "EUR");
 });
 ```
 
@@ -633,8 +633,8 @@ test("testeIgualdade", () => {
 });
 
 test("testeMoedaTipo", () => {
-  assert.strictEqual(Moeda.dolar(1).tipo(), "USD");
-  assert.strictEqual(Moeda.euro(1).tipo(), "EUR");
+  assert.strictEqual(Moeda.dolar(1).tipo, "USD");
+  assert.strictEqual(Moeda.euro(1).tipo, "EUR");
 });
 ```
 
