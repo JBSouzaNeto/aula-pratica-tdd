@@ -4,7 +4,7 @@ class Dolar {
   }
 
   vezes(multiplicador) {
-    this.valor = this.valor * multiplicador;
+    return new Dolar(this.valor * multiplicador);
   }
 }
 
