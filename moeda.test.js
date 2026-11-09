@@ -4,9 +4,6 @@ const { Dolar } = require("./moeda.js");
 
 test("testeMultiplicacao", () => {
   const cinco = new Dolar(5);
-  let produto = cinco.vezes(2);
-  assert.strictEqual(produto.valor, 10);
-
-  produto = cinco.vezes(3);
-  assert.strictEqual(produto.valor, 15);
+  assert.ok(cinco.vezes(2).equals(new Dolar(10)));
+  assert.ok(cinco.vezes(3).equals(new Dolar(15)));
 });

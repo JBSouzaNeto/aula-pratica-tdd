@@ -1,10 +1,16 @@
 class Dolar {
+  #valor;
+
   constructor(valor) {
-    this.valor = valor;
+    this.#valor = valor;
+  }
+
+  get valor() {
+    return this.#valor;
   }
 
   vezes(multiplicador) {
-    return new Dolar(this.valor * multiplicador);
+    return new Dolar(this.#valor * multiplicador);
   }
 }
 
